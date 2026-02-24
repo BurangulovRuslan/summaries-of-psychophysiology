@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+.DS_Store
+*.fif
+*.edf
+*.bdf
+*.set
+*.fdt
+*.vhdr
+*.eeg
+*.vmrk
+reports/

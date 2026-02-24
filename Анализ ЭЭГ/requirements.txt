@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+"""
+01_qc_raw.py — Minimal QC for Raw EEG in MNE-Python
+
+Template script: set montage/types, browse raw, compute PSD, annotate amplitude/muscle.
+Adapt: FILEPATH, montage name, channel types, thresholds.
+
+Run:
+  python scripts/01_qc_raw.py /path/to/file.edf
+"""
+
+import sys
+import mne
+
+def main(fname: str):
+    raw = mne.io.read_raw(fname, preload=True)  # uses format inference
+    print(raw)
+
+    # 1) Set channel types (edit mapping for your dataset)
+    # raw.set_channel_types({"EOG1": "eog", "EOG2": "eog", "ECG": "ecg"})
+
+    # 2) Set montage (choose correct one for your cap)
+    montage = mne.channels.make_standard_montage("standard_1020")
+    raw.set_montage(montage, match_case=False)
+
+    # 3) Basic visualization
+    raw.plot(n_channels=32, duration=10.0, scalings="auto")
+
+    # 4) PSD
+    psd = raw.compute_psd(fmin=0.5, fmax=80.0, method="welch")
+    psd.plot()
+
+    # 5) Automated amplitude annotations (tune thresholds to your system)
+    ann_amp, bads = mne.preprocessing.annotate_amplitude(
+        raw, peak=200e-6, flat=1e-6, bad_percent=5
+    )
+    raw.set_annotations(raw.annotations + ann_amp)
+    if bads:
+        raw.info["bads"].extend(bads)
+        print("Auto-detected bad channels:", bads)
+
+    # 6) Muscle z-score annotations (tune freq band and threshold)
+    ann_muscle, scores = mne.preprocessing.annotate_muscle_zscore(
+        raw, ch_type="eeg", threshold=4.0, min_length_good=0.2, filter_freq=(110, 140)
+    )
+    raw.set_annotations(raw.annotations + ann_muscle)
+
+    # 7) Save a QC report
+    report = mne.Report(title="Raw QC")
+    report.add_raw(raw=raw, title="Raw overview", psd=True)
+    report.save("reports/raw_qc.html", overwrite=True)
+    print("Saved report to reports/raw_qc.html")
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        raise SystemExit("Provide path to EEG file, e.g. /path/to/file.edf")
+    main(sys.argv[1])
