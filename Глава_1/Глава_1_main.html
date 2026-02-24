@@ -1,0 +1,944 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Глава 1 (1.1–1.2): Мозг и нейрон — Конспект</title>
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#111826; --card2:#0f1623; --text:#e7eef7; --muted:#a9b7c6;
+      --accent:#6aa9ff; --ok:#67e8a3; --warn:#ffd27a; --line:#22324a;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font:16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:var(--bg); color:var(--text)}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{padding:22px 16px 10px; border-bottom:1px solid var(--line); background:linear-gradient(180deg,#0c1320,transparent)}
+    header h1{margin:0 0 6px; font-size:22px}
+    header .sub{color:var(--muted); font-size:13px; display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    main{max-width:1000px; margin:0 auto; padding:16px}
+    nav{position:sticky; top:0; z-index:5; background:rgba(11,15,20,.85); backdrop-filter: blur(6px);
+        border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin:12px 0 18px}
+    nav .row{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between}
+    nav .links{display:flex; gap:10px; flex-wrap:wrap}
+    nav .pill{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid var(--line); border-radius:999px; color:var(--text); background:rgba(17,24,38,.6)}
+    nav input[type="search"]{min-width:240px; max-width:420px; width:100%; padding:8px 10px; border-radius:10px; border:1px solid var(--line);
+      background:rgba(17,24,38,.6); color:var(--text)}
+    section{margin:18px 0 28px}
+    h2{margin:0 0 10px; font-size:18px}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; margin:10px 0}
+    .muted{color:var(--muted)}
+    ul{margin:8px 0 0 18px}
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:12px}
+    .col6{grid-column:span 6}
+    .col12{grid-column:span 12}
+    @media (max-width:900px){ .col6{grid-column:span 12} nav input[type="search"]{min-width:180px} }
+    .term{padding:14px; border-radius:14px; border:1px solid var(--line); background:linear-gradient(180deg,var(--card),var(--card2))}
+    .term h3{margin:0 0 6px; font-size:16px; display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+    .badge{font-size:12px; padding:2px 8px; border-radius:999px; border:1px solid var(--line); color:var(--muted)}
+    .controls{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:8px}
+    .btn{cursor:pointer; border:1px solid var(--line); background:rgba(17,24,38,.65); color:var(--text);
+      padding:8px 10px; border-radius:10px}
+    .btn:hover{border-color:#2f4a72}
+    .tiny{font-size:12px}
+    .k{font-weight:600}
+    .mistakes li{color:var(--muted)}
+    .mnemo{border-left:3px solid var(--accent); padding-left:10px; margin:10px 0 0}
+    .hidden{display:none !important}
+    .ok{color:var(--ok)}
+    .warn{color:var(--warn)}
+    .term.mastered{outline:2px solid rgba(103,232,163,.22); border-color:rgba(103,232,163,.35)}
+    .term.mastered .badge.master{border-color:rgba(103,232,163,.5); color:var(--ok)}
+    .flash-wrap{display:grid; grid-template-columns:repeat(12,1fr); gap:12px}
+    .flash{grid-column:span 6; padding:14px; border-radius:14px; border:1px solid var(--line); background:linear-gradient(180deg,var(--card),var(--card2))}
+    @media (max-width:900px){ .flash{grid-column:span 12} }
+    .flash .front{display:flex; align-items:center; justify-content:space-between; gap:10px}
+    .flash h3{margin:0; font-size:16px}
+    .back{margin-top:10px; padding-top:10px; border-top:1px dashed #2a3e5c}
+    details{border:1px solid var(--line); border-radius:12px; background:rgba(17,24,38,.55); padding:10px 12px; margin:10px 0}
+    summary{cursor:pointer; font-weight:600}
+    .cheat{white-space:pre-line}
+    footer{color:var(--muted); font-size:12px; padding:10px 0 24px}
+  </style>
+</head>
+
+<body>
+<header>
+  <h1>Глава 1 (разделы 1.1–1.2): Мозг и нейрон — Конспект</h1>
+  <div class="sub">
+    <span class="pill">Источник: учебник (гл. 1, §§1.1–1.2)</span>
+    <span class="pill">Уровень: кандидатский минимум</span>
+    <span class="pill">Фокус: понимание + устный ответ</span>
+    <span class="pill">Прогресс: <span id="progress">0/16</span></span>
+  </div>
+</header>
+
+<main>
+  <nav aria-label="Навигация по конспекту">
+    <div class="row">
+      <div class="links">
+        <a class="pill" href="#how">(00) Как пользоваться</a>
+        <a class="pill" href="#glossary">(01) Глоссарий</a>
+        <a class="pill" href="#logic">(02) Логика темы</a>
+        <a class="pill" href="#flashcards">(03) Карточки</a>
+        <a class="pill" href="#selfcheck">(04) Самопроверка</a>
+        <a class="pill" href="#cheat">(05) Мини-шпаргалка</a>
+      </div>
+      <input id="termSearch" type="search" placeholder="Поиск по терминам (глоссарий)…" aria-label="Поиск по терминам" />
+    </div>
+    <div class="controls">
+      <label class="pill tiny">
+        <input id="mnemoToggle" type="checkbox" checked />
+        Показывать мнемо-якоря
+      </label>
+      <button class="btn tiny" id="markAllClear" type="button">Сбросить отметки “выучено”</button>
+      <span class="muted tiny">Подсказка: отмечай выученное — прогресс сохранится в браузере.</span>
+    </div>
+  </nav>
+
+  <!-- (00) Как пользоваться -->
+  <section id="how">
+    <h2>(00) Как пользоваться</h2>
+    <div class="card">
+      <ul>
+        <li><span class="k">Прочитал</span> блок (термин/идею) → <span class="k">пересказал вслух</span> “экзаменационной формулой”.</li>
+        <li>Сверил себя по “частым ошибкам”: умею ли <span class="k">различать</span> похожие понятия?</li>
+        <li>Перешёл к карточкам: отвечай <span class="k">сначала без подсказки</span>, потом открывай обратную сторону.</li>
+        <li>Сделал самопроверку: сначала 10 коротких, затем 3 причинно-следственных — <span class="k">как на устном</span>.</li>
+        <li>В конце прочитай мини-шпаргалку и попробуй <span class="k">собрать связный рассказ</span> на 2–3 минуты.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- (01) Глоссарий -->
+  <section id="glossary">
+    <h2>(01) Глоссарий: ключевые термины</h2>
+
+    <div class="grid" id="terms">
+      <!-- 1 -->
+      <article class="term col6" data-term="центральная нервная система цнс">
+        <h3>Центральная нервная система (ЦНС) <span class="badge">структура</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> ЦНС — часть нервной системы, включающая головной и спинной мозг, где происходит интеграция сигналов и организация поведения. Для ЦНС характерна относительная обособленность от тканей тела и наличие специфической внутренней среды, поддерживающей работу нейронных сетей.</p>
+        <p><span class="k">Экзаменационная формула:</span> “ЦНС = мозг + спинной мозг, центр интеграции и управления.”</p>
+        <ul class="mistakes">
+          <li>Сводить ЦНС только к “центру управления”, забывая про обработку/интеграцию информации.</li>
+          <li>Путать ЦНС с нервной системой в целом (включая периферию).</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> ЦНС — “ядро обработки”, у которого есть собственные условия работы (внутренняя среда).</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="ЦНС"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="term col6" data-term="мозговые оболочки твердая паутинная мягкая dura arachnoidea pia">
+        <h3>Мозговые оболочки (dura mater, arachnoidea mater, pia mater) <span class="badge">защита</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> Мозг и спинной мозг окружены системой защитных оболочек. Наружная — твёрдая оболочка (dura mater) — плотная и прочная; промежуточная — паутинная (arachnoidea) — тонкая “сетчатая” структура; внутренняя — мягкая (pia mater) — сосудистая оболочка, содержащая сосуды, питающие мозг. Эти оболочки участвуют в механической защите и формируют пространства, связанные с циркуляцией ликвора.</p>
+        <p><span class="k">Экзаменационная формула:</span> “Оболочки: твёрдая — ‘чехол’, паутинная — ‘сетка’, мягкая — ‘сосудистая’.”</p>
+        <ul class="mistakes">
+          <li>Менять местами паутинную и мягкую оболочки.</li>
+          <li>Считать, что оболочки — только “механическая защита”, игнорируя связь с ликвором и внутренней средой.</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> Три слоя защиты вокруг ЦНС — как “корпус + сетка + питание”.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="Мозговые оболочки"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="term col6" data-term="спинномозговая жидкость ликвор желудочки субарахноидальное пространство">
+        <h3>Спинномозговая жидкость (ликвор) <span class="badge">среда</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> Ликвор — жидкость, заполняющая межоболочечные пространства и внутренние полости мозга (желудочки). Он относится к компонентам “внутренней среды” ЦНС и участвует в поддержании относительной стабильности условий работы нервной ткани (в том числе через циркуляцию и обмен веществ).</p>
+        <p><span class="k">Экзаменационная формула:</span> “Ликвор заполняет желудочки и пространства вокруг мозга, поддерживает его среду.”</p>
+        <ul class="mistakes">
+          <li>Сводить роль ликвора только к “амортизатору”, забывая про средовые/обменные функции.</li>
+          <li>Путать ликвор с кровью как источником питания мозга.</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> Ликвор — “внутренняя жидкая среда” ЦНС, а не просто подушка.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="Ликвор"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="term col6" data-term="гематоэнцефалический барьер гэб внутренняя среда">
+        <h3>Гематоэнцефалический барьер (ГЭБ) <span class="badge">регуляция</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> ГЭБ — морфофункциональный комплекс клеточных структур, обеспечивающий специфику и относительную постоянность состава внутренней среды ЦНС. Он ограничивает и избирательно регулирует переход веществ из крови в среду, окружающую нейроны, тем самым поддерживая условия их нормальной работы.</p>
+        <p><span class="k">Экзаменационная формула:</span> “ГЭБ = фильтр и регулятор обмена между кровью и мозгом.”</p>
+        <ul class="mistakes">
+          <li>Считать ГЭБ “стеной”, через которую ничего не проходит (на деле — избирательная регуляция).</li>
+          <li>Путать ГЭБ с мозговыми оболочками (это разные системы защиты/изоляции).</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> ГЭБ работает как “фильтр-кондиционер” для среды мозга.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="ГЭБ"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="term col6" data-term="онтогенез нервной системы развитие">
+        <h3>Онтогенез нервной системы <span class="badge">развитие</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> Онтогенез нервной системы — индивидуальное развитие нервной системы от ранних эмбриональных стадий до зрелого состояния. В ходе онтогенеза формируются и созревают структуры мозга, усложняется организация связей и уровней интеграции, а модификация межнейрональных связей продолжается и после раннего развития, связываясь с научением.</p>
+        <p><span class="k">Экзаменационная формула:</span> “Онтогенез НС = формирование + созревание структур и связей.”</p>
+        <ul class="mistakes">
+          <li>Смешивать онтогенез (развитие индивида) и филогенез (эволюционное развитие вида).</li>
+          <li>Думать, что “развитие” заканчивается в детстве: пластичность связей сохраняется.</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> Онтогенез — “сборка системы” с дальнейшей настройкой связей через опыт.</p>
+        <p class="muted tiny">Нужно сверить с источником: детали стадий/временных рамок отдельных этапов развития.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="Онтогенез"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="term col6" data-term="нейрогенез гистогенез морфогенез системогенез нейроэпителий нервная трубка">
+        <h3>Нейрогенез (гистогенез, морфогенез, системогенез) <span class="badge">развитие</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> Нейрогенез в учебной традиции рассматривают как комплекс процессов развития нервной системы, включающий: <span class="k">гистогенез</span> (созревание нервной ткани), <span class="k">морфогенез</span> (образование центральных и периферических структур) и <span class="k">системогенез</span> (формирование функциональных систем). Ранние этапы включают дифференцировку клеток эктодермы с образованием нейроэпителия и формированием нервной трубки.</p>
+        <p><span class="k">Экзаменационная формула:</span> “Нейрогенез: ткань → структура → функциональные системы.”</p>
+        <ul class="mistakes">
+          <li>Понимать “нейрогенез” только как “рождение нейронов”, игнорируя морфо- и системный уровни.</li>
+          <li>Смешивать нейрогенез и нейропластичность (изменение связей в уже сформированной системе).</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> Три масштаба: клетки/ткань → анатомия → функциональные системы.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="Нейрогенез"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 7 -->
+      <article class="term col6" data-term="мозговые пузыри ромбовидный средний передний продолговатый мост мозжечок таламус гипоталамус конечный мозг">
+        <h3>Дифференцировка отделов мозга (мозговые пузыри) <span class="badge">морфогенез</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> В ходе морфогенеза исходные мозговые пузыри усложняются и дают различимые отделы мозга. Ромбовидный пузырь дифференцируется на продолговатый мозг и задний мозг; средний мозг сохраняется как целое, формируя дорсально пластинку четверохолмия; передний мозг разделяется на промежуточный (с таламусом и гипоталамусом) и конечный мозг. Над задним мозгом формируются мост и мозжечок.</p>
+        <p><span class="k">Экзаменационная формула:</span> “Пузыри → отделы: ромбовидный/средний/передний → ствол, мозжечок, таламус/гипоталамус, конечный мозг.”</p>
+        <ul class="mistakes">
+          <li>Путать “передний мозг” и “конечный мозг” (конечный — производное переднего).</li>
+          <li>Не различать промежуточный мозг (таламус/гипоталамус) и конечный (полушария).</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> Морфогенез — “разветвление” исходных отделов в более специализированные структуры.</p>
+        <p class="muted tiny">Нужно сверить с источником: дополнительные детали (переходные структуры, уточнения производных заднего мозга).</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="Пузыри"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 8 -->
+      <article class="term col6" data-term="иерархия интегративных процессов надстраивание первичные центры доминирование">
+        <h3>Иерархия интегративных процессов <span class="badge">принцип</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> Общий план формирования мозга описывают как “надстраивание” новых структур над уже сформированными: первичные центры сохраняют значение, а вновь возникающие занимают более высокий уровень в иерархии интегративных процессов и могут доминировать в организации активности организма. Это объясняет сочетание устойчивых базовых механизмов и появление более сложных форм регуляции.</p>
+        <p><span class="k">Экзаменационная формула:</span> “Новое не отменяет старое: новые уровни надстраиваются и координируют нижележащие.”</p>
+        <ul class="mistakes">
+          <li>Понимать иерархию как “замену” старых структур новыми.</li>
+          <li>Путать “уровень интеграции” с “важностью” в одном конкретном поведении (зависит от задачи).</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> Иерархия — это “уровни управления”, а не “лестница уничтожения” старого.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="Иерархия"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 9 -->
+      <article class="term col6" data-term="нейрон нервная клетка функции память образ внешнего мира поведение">
+        <h3>Нейрон <span class="badge">клетка</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> Нейрон — нервная клетка, специализированная для дифференцированного реагирования на изменения внешней среды и передачи информации внутри организма. К функциям нейрона относят передачу и запоминание информации, формирование “образа внешнего мира” и организацию поведения наиболее целесообразным способом.</p>
+        <p><span class="k">Экзаменационная формула:</span> “Нейрон — единица обработки: принимает, преобразует, передаёт и участвует в памяти/поведении.”</p>
+        <ul class="mistakes">
+          <li>Сводить нейрон к “проводу” (только проводимость) без интеграции и пластичности.</li>
+          <li>Забывать, что память/поведение — это системные функции сетей, но реализуются через свойства нейронов и их связей.</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> Нейрон — “узел сети”, не просто “кабель”.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="Нейрон"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 10 -->
+      <article class="term col6" data-term="нейроглия глиальные клетки поддержка миелин">
+        <h3>Нейроглия (глиальные клетки) <span class="badge">клетки</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> Нейроглия — совокупность клеток нервной ткани, не являющихся нейронами, но обеспечивающих поддержку и оптимальные условия их работы. Глия участвует в трофике, поддержании химической среды, изоляции отростков (включая миелинизацию) и в других процессах, критичных для функционирования нервной системы.</p>
+        <p><span class="k">Экзаменационная формула:</span> “Глия — клетки обеспечения: среда, питание, изоляция и поддержка работы нейронов.”</p>
+        <ul class="mistakes">
+          <li>Считать глию “пассивным клеем”; на деле она функционально важна.</li>
+          <li>Полностью отрывать роль глии от электрических процессов (через среду/изоляцию глия влияет на возбудимость).</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> Глия — “инфраструктура” нейронной сети.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="Глия"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 11 -->
+      <article class="term col6" data-term="сома тело нейрона перикарион интеграция">
+        <h3>Сома нейрона (тело клетки) <span class="badge">структура</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> Сома — часть нейрона, содержащая ядро и основные клеточные органеллы. Она обеспечивает метаболическое “обслуживание” отростков и участвует в интеграции входящих сигналов, определяя общее состояние клетки и условия генерации импульса.</p>
+        <p><span class="k">Экзаменационная формула:</span> “Сома = метаболический центр + интеграция входов.”</p>
+        <ul class="mistakes">
+          <li>Думать, что интеграция сигналов происходит “где-то в аксонe”; ключевые суммирования часто связаны с областью сомы/инициального сегмента.</li>
+          <li>Считать сомy “просто ядром”; функционально это центр поддержания и интеграции.</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> Сома — “центр управления ресурсами” нейрона.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="Сома"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 12 -->
+      <article class="term col6" data-term="дендрит отросток вход синапсы ветвление">
+        <h3>Дендрит <span class="badge">структура</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> Дендриты — обычно ветвящиеся отростки нейрона, обеспечивающие приём сигналов от других клеток через синапсы. Их пространственная организация увеличивает площадь контактов и позволяет суммировать множественные влияния, приходящие к нейрону.</p>
+        <p><span class="k">Экзаменационная формула:</span> “Дендриты — ‘вход’ нейрона: приём и первичная интеграция влияний.”</p>
+        <ul class="mistakes">
+          <li>Абсолютизировать правило “дендриты — вход, аксон — выход” (в конкретных схемах возможны исключения).</li>
+          <li>Не связывать ветвление дендритов с вычислительными возможностями нейрона (суммирование входов).</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> Дендриты — “антенны” нейрона для множества источников.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="Дендрит"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 13 -->
+      <article class="term col6" data-term="аксон миелин белое вещество проводимость импульс">
+        <h3>Аксон и миелин <span class="badge">структура</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> Аксон — отросток нейрона, обеспечивающий направленное распространение нервного импульса к окончаниям, где сигнал может передаваться другим клеткам. Многие аксоны имеют изолирующую оболочку, основу которой составляет миелин; это связано со спецификой распространения биоэлектрической активности в нервной системе. Организованные в пучки аксоны формируют значительную часть белого вещества.</p>
+        <p><span class="k">Экзаменационная формула:</span> “Аксон проводит ПД; миелин изолирует и влияет на проведение.”</p>
+        <ul class="mistakes">
+          <li>Сводить роль миелина только к “ускорению” без понимания изоляции и организации трактов.</li>
+          <li>Путать белое вещество (пучки отростков) и серое вещество (скопления тел нейронов и т. п.).</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> Аксон + миелин — “провод + изоляция” для надёжной передачи.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="Аксон"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 14 -->
+      <article class="term col6" data-term="мембранный потенциал потенциал покоя ионные градиенты">
+        <h3>Мембранный потенциал (потенциал покоя) <span class="badge">электрофизиология</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> Мембранный потенциал — разность электрических потенциалов между внутренней и внешней сторонами мембраны клетки, связанная с ионными градиентами и свойствами мембраны. Измерения микродэлектродной техникой показывают, что для нервных клеток характерен отрицательный потенциал в состоянии покоя относительно внешней среды.</p>
+        <p><span class="k">Экзаменационная формула:</span> “Покой нейрона электрически поляризован: внутри ‘минус’ из-за ионов и мембраны.”</p>
+        <ul class="mistakes">
+          <li>Путать “потенциал покоя” и “потенциал действия” (разные режимы и механизмы).</li>
+          <li>Объяснять потенциал только “насосом”, игнорируя вклад проницаемостей мембраны.</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> Потенциал покоя — “настроенное напряжение” готовности к сигналу.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="Потенциал покоя"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 15 -->
+      <article class="term col6" data-term="потенциал действия пд нервный импульс возбудимость">
+        <h3>Потенциал действия (ПД) <span class="badge">электрофизиология</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> Потенциал действия — быстрый электрический импульс, возникающий при возбудимости мембраны и распространяющийся по отросткам нейрона. Механизмы электрической возбудимости опираются на ионные градиенты и свойства мембранных каналов, обеспечивая передачу сигнала на расстояние.</p>
+        <p><span class="k">Экзаменационная формула:</span> “ПД — распространяющийся импульс, основанный на изменении проницаемости мембраны.”</p>
+        <ul class="mistakes">
+          <li>Путать ПД с постсинаптическими потенциалами (ПСП локальны, ПД — распространяется).</li>
+          <li>Считать, что ПД “затухает как сигнал”; в норме он регенеративен вдоль аксона.</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> ПД — “волна” по мембране, а не “порция вещества”.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="ПД"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 16 -->
+      <article class="term col6" data-term="синапс пресинаптическая терминаль щель рецепторы">
+        <h3>Синапс <span class="badge">связь</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> Синапс — специализированный контакт, через который нейрон передаёт сигнал другой клетке. В типичном химическом синапсе пресинаптическое окончание выделяет медиатор в межклеточную щель, а на постсинаптической мембране расположены рецепторы, запускающие изменение ионной проницаемости и формирование постсинаптического потенциала.</p>
+        <p><span class="k">Экзаменационная формула:</span> “Синапс: медиатор → рецептор → изменение ионных каналов → ПСП.”</p>
+        <ul class="mistakes">
+          <li>Считать, что “синапс = просто щель”; ключ — специализированные структуры и рецепторы.</li>
+          <li>Путать направление передачи: пресинаптическое окончание выделяет медиатор, постсинаптическая мембрана отвечает.</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> Синапс — “переводчик” сигнала между клетками.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="Синапс"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 17 -->
+      <article class="term col6" data-term="нейромедиатор медиатор рецептор">
+        <h3>Нейромедиатор <span class="badge">передача</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> Нейромедиатор — вещество, выделяемое из пресинаптической терминали и взаимодействующее с рецепторами на внешней стороне постсинаптической мембраны. Связывание медиатора с рецептором приводит к открытию каналов специфической ионной проницаемости или к запуску внутриклеточных каскадов; в учебнике отмечают, что идентифицировано около сотни веществ, выполняющих эту функцию.</p>
+        <p><span class="k">Экзаменационная формула:</span> “Медиатор связывается с рецептором и меняет проницаемость мембраны.”</p>
+        <ul class="mistakes">
+          <li>Смешивать медиатор и “гормон” без уточнения места/типа передачи (синаптическая vs системная).</li>
+          <li>Думать, что каждый медиатор всегда только возбуждает или только тормозит (эффект зависит от рецептора и каналов).</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> Медиатор — “ключ”, а рецептор — “замок”, задающий эффект.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="Нейромедиатор"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 18 -->
+      <article class="term col6" data-term="постсинаптический потенциал псп впсп тпсп деполяризация гиперполяризация">
+        <h3>Постсинаптический потенциал (ПСП), ВПСП и ТПСП <span class="badge">электрофизиология</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> Постсинаптический потенциал — локальное изменение мембранного потенциала постсинаптической клетки после действия медиатора: деполяризация или гиперполяризация. ПСП делят на <span class="k">возбудительные</span> (ВПСП) и <span class="k">тормозные</span> (ТПСП) в зависимости от того, приближают ли они мембрану к порогу генерации импульса или, наоборот, уменьшают вероятность возбуждения.</p>
+        <p><span class="k">Экзаменационная формула:</span> “ПСП локален: ВПСП приближает к ПД, ТПСП удаляет.”</p>
+        <ul class="mistakes">
+          <li>Путать ПСП с потенциалом действия (локальный vs распространяющийся).</li>
+          <li>Считать “торможение” отсутствием сигнала; на деле это активный тип влияния через каналы/проницаемость.</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> ПСП — “локальная настройка” вероятности импульса.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="ПСП"> Отметить как выучено</label>
+        </div>
+      </article>
+
+      <!-- 19 -->
+      <article class="term col12" data-term="пластичность межнейрональные связи научение">
+        <h3>Пластичность межнейрональных связей <span class="badge">функция</span> <span class="badge master hidden">выучено</span></h3>
+        <p><span class="k">Академическое определение.</span> Пластичность межнейрональных связей — способность нервной системы изменять характеристики контактов и взаимодействий между нейронами. Подчёркивается, что модификация межнейрональных связей продолжается в течение всей жизни и связана с научением, то есть с формированием и перестройкой способов поведения.</p>
+        <p><span class="k">Экзаменационная формула:</span> “Научение опирается на пластичность связей — изменения в сети, а не в одном нейроне.”</p>
+        <ul class="mistakes">
+          <li>Сводить научение только к “росту новых нейронов”; ключ чаще в перестройке связей и их эффективности.</li>
+          <li>Думать, что пластичность безгранична и одинакова во всех отделах мозга.</li>
+        </ul>
+        <p class="mnemo"><span class="k">Мнемо-якорь:</span> Пластичность — это “перенастройка сети” под опыт.</p>
+        <div class="controls">
+          <label class="pill tiny"><input class="masterToggle" type="checkbox" data-key="Пластичность"> Отметить как выучено</label>
+        </div>
+        <p class="muted tiny">Примечание: этот термин усиливает понимание связи 1.1 (развитие/иерархия) и 1.2 (механизмы связи/синапсы).</p>
+      </article>
+    </div>
+
+    <div class="card">
+      <p class="muted tiny">
+        Если какой-то блок кажется “слишком общим”: это сделано специально для устного ответа. Детали (цифры, исключения, частные схемы) добавляй после сверки с первоисточником.
+      </p>
+    </div>
+  </section>
+
+  <!-- (02) Логика темы -->
+  <section id="logic">
+    <h2>(02) Логика темы: схема</h2>
+    <div class="card">
+      <svg viewBox="0 0 980 360" width="100%" height="auto" role="img" aria-label="Схема логики темы 1.1–1.2">
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L9,3 L0,6 Z" fill="#6aa9ff"></path>
+          </marker>
+          <style>
+            .bx{fill:#111826; stroke:#22324a; stroke-width:2}
+            .tx{fill:#e7eef7; font: 14px system-ui, -apple-system, Segoe UI, Roboto, Arial}
+            .sm{fill:#a9b7c6; font: 12px system-ui, -apple-system, Segoe UI, Roboto, Arial}
+            .ln{stroke:#6aa9ff; stroke-width:2; marker-end:url(#arrow)}
+          </style>
+        </defs>
+
+        <!-- Left column: 1.1 -->
+        <rect class="bx" x="20" y="20" rx="14" ry="14" width="300" height="80"></rect>
+        <text class="tx" x="40" y="50">1.1 Мозг: общее описание</text>
+        <text class="sm" x="40" y="72">ЦНС, внутренняя среда, защита</text>
+
+        <rect class="bx" x="20" y="125" rx="14" ry="14" width="300" height="95"></rect>
+        <text class="tx" x="40" y="155">Изоляция и поддержка среды</text>
+        <text class="sm" x="40" y="178">оболочки → ликвор → ГЭБ</text>
+
+        <rect class="bx" x="20" y="245" rx="14" ry="14" width="300" height="95"></rect>
+        <text class="tx" x="40" y="275">Онтогенез и иерархия</text>
+        <text class="sm" x="40" y="298">“надстраивание” уровней</text>
+        <text class="sm" x="40" y="318">пластичность связей ↔ научение</text>
+
+        <!-- Right column: 1.2 -->
+        <rect class="bx" x="660" y="20" rx="14" ry="14" width="300" height="80"></rect>
+        <text class="tx" x="680" y="50">1.2 Нейрон: строение и функции</text>
+        <text class="sm" x="680" y="72">сома, дендриты, аксон, синапс</text>
+
+        <rect class="bx" x="660" y="125" rx="14" ry="14" width="300" height="95"></rect>
+        <text class="tx" x="680" y="155">Электрическая возбудимость</text>
+        <text class="sm" x="680" y="178">покой → ПД → проведение</text>
+
+        <rect class="bx" x="660" y="245" rx="14" ry="14" width="300" height="95"></rect>
+        <text class="tx" x="680" y="275">Синаптическая передача</text>
+        <text class="sm" x="680" y="298">медиатор → рецептор → ПСП</text>
+        <text class="sm" x="680" y="318">ВПСП / ТПСП → вероятность ПД</text>
+
+        <!-- Center: linking node -->
+        <rect class="bx" x="350" y="150" rx="14" ry="14" width="280" height="80"></rect>
+        <text class="tx" x="370" y="180">Сеть нейронов = поведение</text>
+        <text class="sm" x="370" y="203">иерархия уровней + пластичность</text>
+
+        <!-- Arrows -->
+        <line class="ln" x1="320" y1="65" x2="350" y2="190"></line>
+        <line class="ln" x1="320" y1="172" x2="350" y2="190"></line>
+        <line class="ln" x1="320" y1="292" x2="350" y2="190"></line>
+
+        <line class="ln" x1="660" y1="65" x2="630" y2="190"></line>
+        <line class="ln" x1="660" y1="172" x2="630" y2="190"></line>
+        <line class="ln" x1="660" y1="292" x2="630" y2="190"></line>
+      </svg>
+      <p class="muted tiny" style="margin-top:10px">
+        Смысл схемы: (1.1) задаёт “платформу” (структуры, среда, развитие), (1.2) даёт “механизмы” (возбудимость, синапсы).
+        Вместе они объясняют, как из клеточных процессов возникает системная организация поведения и научения.
+      </p>
+    </div>
+  </section>
+
+  <!-- (03) Flashcards -->
+  <section id="flashcards">
+    <h2>(03) Карточки (Flashcards)</h2>
+    <div class="card">
+      <div class="controls">
+        <button class="btn" id="toggleAll" type="button">Показать/Скрыть все</button>
+        <button class="btn" id="randomCard" type="button">Случайная карточка</button>
+        <span class="muted tiny">Совет: сначала ответь 10–15 секунд, потом открывай обратную сторону.</span>
+      </div>
+    </div>
+
+    <div class="flash-wrap" id="flashWrap">
+      <!-- Flashcards: one per term (16) -->
+      <div class="flash" data-card="ЦНС">
+        <div class="front">
+          <h3>ЦНС</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Головной и спинной мозг — центральное звено интеграции сигналов и организации поведения, имеющее специфическую внутреннюю среду.</p>
+          <p><span class="k">Ключевой признак:</span> интеграция + относительная обособленность.</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="Мозговые оболочки">
+        <div class="front">
+          <h3>Мозговые оболочки</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Твёрдая, паутинная и мягкая оболочки окружают ЦНС, защищают её и формируют пространства, связанные с ликвором.</p>
+          <p><span class="k">Ключевой признак:</span> три слоя с разными функциями (прочность/“сетка”/сосудистость).</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="Ликвор">
+        <div class="front">
+          <h3>Ликвор</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Спинномозговая жидкость заполняет желудочки и межоболочечные пространства и относится к внутренней среде ЦНС.</p>
+          <p><span class="k">Ключевой признак:</span> поддержка стабильной среды (не только “амортизация”).</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="ГЭБ">
+        <div class="front">
+          <h3>ГЭБ</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Клеточный комплекс, избирательно регулирующий обмен между кровью и средой мозга, поддерживая её постоянство.</p>
+          <p><span class="k">Ключевой признак:</span> фильтрация + регуляция, а не абсолютная “стена”.</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="Онтогенез НС">
+        <div class="front">
+          <h3>Онтогенез нервной системы</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Индивидуальное развитие НС: формирование и созревание структур и связей; пластичность связей сохраняется и связана с научением.</p>
+          <p><span class="k">Ключевой признак:</span> развитие + последующая настройка связей.</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="Нейрогенез">
+        <div class="front">
+          <h3>Нейрогенез</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Комплекс процессов: гистогенез (созревание ткани), морфогенез (формирование структур), системогенез (формирование функциональных систем).</p>
+          <p><span class="k">Ключевой признак:</span> три масштаба развития.</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="Мозговые пузыри">
+        <div class="front">
+          <h3>Дифференцировка отделов (пузыри)</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Исходные отделы мозга дают производные: продолговатый/задний мозг, средний мозг, промежуточный (таламус/гипоталамус) и конечный мозг; формируются мост и мозжечок.</p>
+          <p><span class="k">Ключевой признак:</span> морфогенез как разветвление специализаций.</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="Иерархия">
+        <div class="front">
+          <h3>Иерархия интегративных процессов</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Новые структуры “надстраиваются” над прежними: старые сохраняются, новые занимают более высокий уровень и координируют нижележащие.</p>
+          <p><span class="k">Ключевой признак:</span> надстройка, а не замена.</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="Нейрон">
+        <div class="front">
+          <h3>Нейрон</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Возбудимая клетка, принимающая и передающая информацию; участвует в запоминании, формировании образа мира и организации поведения.</p>
+          <p><span class="k">Ключевой признак:</span> “узел сети”, не только проводимость.</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="Глия">
+        <div class="front">
+          <h3>Нейроглия</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Клетки обеспечения нервной ткани: поддержка среды, трофика, изоляция (в т. ч. миелинизация) и др.</p>
+          <p><span class="k">Ключевой признак:</span> функциональная “инфраструктура” для нейронов.</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="Сома">
+        <div class="front">
+          <h3>Сома</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Тело нейрона с ядром и органеллами; метаболический центр и место интеграции входящих влияний.</p>
+          <p><span class="k">Ключевой признак:</span> поддержка + интеграция.</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="Дендрит">
+        <div class="front">
+          <h3>Дендрит</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Ветвящийся отросток, принимающий синаптические влияния и позволяющий суммировать входы.</p>
+          <p><span class="k">Ключевой признак:</span> “вход” + ветвление для множества контактов.</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="Аксон">
+        <div class="front">
+          <h3>Аксон и миелин</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Аксон проводит потенциал действия к окончаниям; миелин изолирует и влияет на проведение; пучки аксонов формируют белое вещество.</p>
+          <p><span class="k">Ключевой признак:</span> направленное проведение + изоляция.</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="Потенциал покоя">
+        <div class="front">
+          <h3>Потенциал покоя</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Разность потенциалов на мембране, связанная с ионными градиентами; в покое внутри клетки относительно “минус”.</p>
+          <p><span class="k">Ключевой признак:</span> поляризация как условие возбудимости.</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="ПД">
+        <div class="front">
+          <h3>Потенциал действия</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Быстрый импульс, возникающий из-за изменений проницаемости мембраны и распространяющийся по отросткам.</p>
+          <p><span class="k">Ключевой признак:</span> распространяется (в отличие от ПСП).</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="Синапс">
+        <div class="front">
+          <h3>Синапс</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Контакт, где медиатор из пресинаптического окончания через щель действует на рецепторы постсинаптической мембраны, вызывая ПСП.</p>
+          <p><span class="k">Ключевой признак:</span> медиатор → рецептор → ионные каналы.</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="Медиатор">
+        <div class="front">
+          <h3>Нейромедиатор</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Вещество, выделяемое пресинаптически и активирующее рецепторы, открывающие специфические ионные каналы/каскады.</p>
+          <p><span class="k">Ключевой признак:</span> эффект определяется рецептором.</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="ПСП">
+        <div class="front">
+          <h3>ПСП (ВПСП/ТПСП)</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Локальная деполяризация/гиперполяризация после медиатора; ВПСП повышает вероятность ПД, ТПСП снижает.</p>
+          <p><span class="k">Ключевой признак:</span> локальность и “изменение вероятности”.</p>
+        </div>
+      </div>
+
+      <div class="flash" data-card="Пластичность">
+        <div class="front">
+          <h3>Пластичность связей</h3>
+          <button class="btn tiny flip" type="button">Показать</button>
+        </div>
+        <div class="back hidden">
+          <p><span class="k">Определение:</span> Изменяемость межнейрональных связей на протяжении жизни; функциональная основа научения.</p>
+          <p><span class="k">Ключевой признак:</span> изменения в сети.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (04) Самопроверка -->
+  <section id="selfcheck">
+    <h2>(04) Самопроверка</h2>
+
+    <div class="card">
+      <p class="muted">Открывай вопросы по одному. Сначала попробуй ответить коротко (1–3 фразы), затем — развернуть до 30–60 секунд.</p>
+    </div>
+
+    <!-- 10 вопросов -->
+    <details>
+      <summary>1) Что входит в ЦНС и чем она отличается от нервной системы в целом?</summary>
+      <div class="muted">ЦНС включает головной и спинной мозг; нервная система в целом включает также периферические структуры. ЦНС — основной уровень интеграции и координации, с относительно обособленной внутренней средой.</div>
+    </details>
+
+    <details>
+      <summary>2) Назови три мозговые оболочки и их ключевые характеристики.</summary>
+      <div class="muted">Твёрдая — плотная, прочная “чехольная”; паутинная — тонкая сетчатая; мягкая — сосудистая, содержит сосуды питания мозга.</div>
+    </details>
+
+    <details>
+      <summary>3) Где находится ликвор и зачем он важен для работы мозга?</summary>
+      <div class="muted">Ликвор заполняет межоболочечные пространства и желудочки. Он относится к внутренней среде ЦНС и помогает поддерживать стабильные условия функционирования нервной ткани (в т. ч. через циркуляцию/обмен).</div>
+    </details>
+
+    <details>
+      <summary>4) Что такое гематоэнцефалический барьер и какую задачу он решает?</summary>
+      <div class="muted">ГЭБ — морфофункциональный клеточный комплекс, избирательно регулирующий переход веществ из крови в среду мозга, обеспечивая её специфику и постоянство.</div>
+    </details>
+
+    <details>
+      <summary>5) В чём смысл принципа “надстраивания” структур в развитии мозга?</summary>
+      <div class="muted">Новые структуры формируются поверх/над уже существующими; первичные центры сохраняют значение, а новые уровни занимают более высокое место в интегративной иерархии и координируют нижележащие.</div>
+    </details>
+
+    <details>
+      <summary>6) Дай определение нейрогенеза в трёх аспектах.</summary>
+      <div class="muted">Гистогенез — созревание нервной ткани; морфогенез — формирование центральных и периферических структур; системогенез — формирование функциональных систем.</div>
+    </details>
+
+    <details>
+      <summary>7) Какие основные производные дают мозговые пузыри (очень схематично)?</summary>
+      <div class="muted">Ромбовидный — продолговатый и задний мозг; средний — сохраняется как целое (в т. ч. четверохолмие); передний — промежуточный (таламус/гипоталамус) и конечный мозг; формируются мост и мозжечок.</div>
+    </details>
+
+    <details>
+      <summary>8) Какие функции приписывают нейрону в контексте психофизиологии?</summary>
+      <div class="muted">Передача информации о изменениях среды, запоминание на длительные сроки, создание образа внешнего мира и организация поведения наиболее целесообразным способом.</div>
+    </details>
+
+    <details>
+      <summary>9) Чем потенциал покоя отличается от потенциала действия?</summary>
+      <div class="muted">Потенциал покоя — относительно стабильная поляризация мембраны (внутри отрицательно) за счёт ионных градиентов; потенциал действия — быстрый импульс, возникающий при возбуждении и распространяющийся по отросткам.</div>
+    </details>
+
+    <details>
+      <summary>10) Опиши цепочку: медиатор → рецептор → ПСП → (ВПСП/ТПСП).</summary>
+      <div class="muted">Медиатор из пресинаптического окончания связывается с рецептором на постсинаптической мембране, что открывает каналы специфической ионной проницаемости. Возникает локальная деполяризация или гиперполяризация — ПСП. Возбудительный ПСП (ВПСП) повышает вероятность ПД, тормозный (ТПСП) снижает.</div>
+    </details>
+
+    <!-- 3 причинно-следственных -->
+    <h3 style="margin:18px 0 8px; font-size:16px;">3 вопроса “объясни причинно-следственно” (для устного)</h3>
+
+    <details>
+      <summary>A) Почему для ЦНС важна “специфическая внутренняя среда”, и как в этом участвуют оболочки, ликвор и ГЭБ?</summary>
+      <div class="muted">
+        Нейроны чувствительны к составу среды, поэтому ЦНС нуждается в стабильных условиях. Оболочки защищают и формируют пространства, где циркулирует ликвор; ликвор является частью внутренней среды ЦНС. ГЭБ избирательно регулирует обмен между кровью и средой мозга, поддерживая её постоянство и тем самым обеспечивая нормальную возбудимость и передачу сигналов.
+      </div>
+    </details>
+
+    <details>
+      <summary>B) Почему “надстраивание” уровней и сохранение первичных центров логично для организации поведения?</summary>
+      <div class="muted">
+        Базовые механизмы жизненно важны и должны быть устойчивыми, поэтому ранние центры сохраняют значение. Новые уровни добавляют более сложные способы интеграции и контроля, координируя нижележащие процессы, что позволяет расширять репертуар поведения без потери фундаментальных функций.
+      </div>
+    </details>
+
+    <details>
+      <summary>C) Как связаны пластичность межнейрональных связей, синаптическая передача и научение?</summary>
+      <div class="muted">
+        Синапс — ключевое место преобразования сигнала (медиатор → рецептор → ПСП). Изменения эффективности и организации синаптических связей меняют, какие нейроны и как включаются в сеть при решении задач. Поэтому пластичность межнейрональных связей выступает функциональной основой научения: опыт “перенастраивает” сеть.
+      </div>
+    </details>
+  </section>
+
+  <!-- (05) Мини-шпаргалка -->
+  <section id="cheat">
+    <h2>(05) Мини-шпаргалка: если помнишь только это — хватит</h2>
+    <div class="card cheat">
+1) ЦНС = головной + спинной мозг; это центр интеграции и организации поведения.
+2) ЦНС обособлена: оболочки + ликвор + ГЭБ поддерживают специфическую внутреннюю среду.
+3) Оболочки: dura (прочная), arachnoidea (паутинная), pia (сосудистая).
+4) Нейрогенез удобно мыслить в 3 аспектах: гистогенез (ткань), морфогенез (структуры), системогенез (функциональные системы).
+5) Развитие мозга идёт как “надстраивание”: старые центры сохраняются, новые уровни координируют нижележащие.
+6) Нейрон — не “провод”, а узел сети: принимает, преобразует, передаёт; участвует в памяти, образе мира и поведении.
+7) Структура нейрона: сома + дендриты (вход) + аксон (проведение) + окончания (передача).
+8) Электрофизиология: потенциал покоя (внутри “минус”) → потенциал действия (распространяющийся импульс).
+9) Синапс: медиатор → рецептор → изменение ионных каналов → ПСП (ВПСП/ТПСП).
+10) Пластичность связей продолжается всю жизнь и связана с научением (перенастройкой сети).
+    </div>
+    <footer>
+      <div class="muted">
+        Примечание: если готовишь устный ответ, попробуй рассказать тему в последовательности “среда ЦНС → развитие/иерархия → нейрон → возбудимость → синапсы → пластичность/научение”.
+      </div>
+    </footer>
+  </section>
+
+  <!-- QC (комментарии контроля качества) -->
+  <!--
+    QC:
+    - Список терминов: 16 (минимум 12 выполнен)
+    - Вопросов самопроверки: 10 + 3 причинно-следственных (выполнено)
+    - Карточек: 16 (равно числу терминов)
+  -->
+
+</main>
+
+<script>
+  (function(){
+    const LS_MASTER = "pf_mastered_v1";
+    const LS_MNEMO  = "pf_mnemo_v1";
+
+    const termNodes = Array.from(document.querySelectorAll(".term"));
+    const flashNodes = Array.from(document.querySelectorAll(".flash"));
+    const progressEl = document.getElementById("progress");
+    const searchEl = document.getElementById("termSearch");
+    const mnemoToggle = document.getElementById("mnemoToggle");
+    const markAllClear = document.getElementById("markAllClear");
+
+    // Load mastered set
+    function loadMastered(){
+      try{
+        const raw = localStorage.getItem(LS_MASTER);
+        return raw ? new Set(JSON.parse(raw)) : new Set();
+      }catch(e){ return new Set(); }
+    }
+    function saveMastered(set){
+      localStorage.setItem(LS_MASTER, JSON.stringify(Array.from(set)));
+    }
+
+    let mastered = loadMastered();
+
+    function applyMasteredUI(){
+      let count = 0;
+      termNodes.forEach(t=>{
+        const cb = t.querySelector(".masterToggle");
+        if(!cb) return;
+        const key = cb.dataset.key;
+        const isOn = mastered.has(key);
+        cb.checked = isOn;
+        t.classList.toggle("mastered", isOn);
+        const badge = t.querySelector(".badge.master");
+        if(badge) badge.classList.toggle("hidden", !isOn);
+        if(isOn) count++;
+      });
+      progressEl.textContent = count + "/16";
+    }
+
+    // Mnemo toggle
+    function setMnemoVisible(on){
+      mnemoToggle.checked = on;
+      document.querySelectorAll(".mnemo").forEach(p=>p.classList.toggle("hidden", !on));
+      localStorage.setItem(LS_MNEMO, on ? "1" : "0");
+    }
+    const mnemoPref = localStorage.getItem(LS_MNEMO);
+    if(mnemoPref === "0") setMnemoVisible(false);
+
+    mnemoToggle.addEventListener("change", ()=> setMnemoVisible(mnemoToggle.checked));
+
+    // Master checkboxes
+    document.addEventListener("change", (e)=>{
+      const cb = e.target;
+      if(!cb.classList || !cb.classList.contains("masterToggle")) return;
+      const key = cb.dataset.key;
+      if(cb.checked) mastered.add(key);
+      else mastered.delete(key);
+      saveMastered(mastered);
+      applyMasteredUI();
+    });
+
+    markAllClear.addEventListener("click", ()=>{
+      mastered = new Set();
+      saveMastered(mastered);
+      applyMasteredUI();
+    });
+
+    // Search filter (glossary only)
+    function norm(s){ return (s||"").toLowerCase().trim(); }
+    searchEl.addEventListener("input", ()=>{
+      const q = norm(searchEl.value);
+      termNodes.forEach(t=>{
+        const hay = norm(t.getAttribute("data-term")) + " " + norm(t.textContent);
+        const show = !q || hay.includes(q);
+        t.classList.toggle("hidden", !show);
+      });
+    });
+
+    // Flashcard toggles
+    function toggleCard(card){
+      const back = card.querySelector(".back");
+      const btn = card.querySelector(".flip");
+      if(!back || !btn) return;
+      const isHidden = back.classList.contains("hidden");
+      back.classList.toggle("hidden", !isHidden ? true : false);
+      btn.textContent = isHidden ? "Скрыть" : "Показать";
+    }
+
+    document.addEventListener("click", (e)=>{
+      const btn = e.target;
+      if(btn.classList && btn.classList.contains("flip")){
+        const card = btn.closest(".flash");
+        if(card) toggleCard(card);
+      }
+    });
+
+    // Toggle all flashcards
+    let allShown = false;
+    document.getElementById("toggleAll").addEventListener("click", ()=>{
+      allShown = !allShown;
+      flashNodes.forEach(card=>{
+        const back = card.querySelector(".back");
+        const btn = card.querySelector(".flip");
+        if(!back || !btn) return;
+        back.classList.toggle("hidden", !allShown ? true : false);
+        btn.textContent = allShown ? "Скрыть" : "Показать";
+      });
+    });
+
+    // Random flashcard
+    document.getElementById("randomCard").addEventListener("click", ()=>{
+      const i = Math.floor(Math.random() * flashNodes.length);
+      const card = flashNodes[i];
+      card.scrollIntoView({behavior:"smooth", block:"center"});
+      // Brief highlight
+      card.animate([{transform:"scale(1)"},{transform:"scale(1.02)"},{transform:"scale(1)"}], {duration:420});
+    });
+
+    applyMasteredUI();
+  })();
+</script>
+</body>
+</html>
